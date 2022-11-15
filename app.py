@@ -1,14 +1,10 @@
 import streamlit as st
-import cv2
-# import streamlit as st
-
-st.title('Lane Detection')
-st.header('Upload a video and detect lane')
-
-st.header('Input images')
-
-f = st.file_uploader("Upload file")
-if f is not None:
-    file_details = {"FileName":f.name,"FileType":f.type}
-    st.write(file_details)
+import pandas as pd
+st.title(“A Simple Streamlit Web App”)
+name = st.text_input(“Enter your name”, ‘’)
+st.write(f”Hello {name}!”)
+x = st.slider(“Select an integer x”, 0, 10, 1)
+y = st.slider(“Select an integer y”, 0, 10, 1)
+df = pd.DataFrame({“x”: [x], “y”: [y] , “x + y”: [x + y]}, index = [“addition row”])
+st.write(df)
     
