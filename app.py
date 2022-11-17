@@ -23,7 +23,6 @@ import streamlit as st
 # import streamlit as st
 from PIL import Image
 
-from main import panorama
 
 # st.title('Lane Detection')
 # st.header('Upload a video and detect lane')
