@@ -238,7 +238,7 @@ def ProjectOntoCylinder(InitialImage):
 
 # def panorama():
 def save_uploadedfile(uploadedfile):
-    with open(os.path.join('panorama'), uploadedfile.name) as f:
+    with open(os.path.join('panorama/'), uploadedfile.name) as f:
         f.write(uploadedfile.getbuffer())
         return st.success("Saved File:{} to Panorama".format(uploadedfile.name))
 
