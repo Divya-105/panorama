@@ -1,8 +1,10 @@
 import os
-# import cv2
+import cv2
 import math
 import numpy as np
+import streamlit as st
       
+
 
 def ReadImage(ImageFolderPath):
     Images = []									# Input Images will be stored in this list.
@@ -233,9 +235,21 @@ def ProjectOntoCylinder(InitialImage):
 
     return TransformedImage, ti_x-min_x, ti_y
 
-def panorama():
-    if __name__ == "__main__":
+# def panorama():
+def save_uploadedfile(uploadedfile):
+    with open(os.path.join('Panorama', uploadedfile.name), "wb") as f:
+        f.write(uploadedfile.getbuffer())
+        return st.success("Saved File:{} to Panorama".format(uploadedfile.name))
+
+if __name__ == "__main__":
         # Reading images.
+        st.title("Upload images")
+        # st.text("A simple way to upload files directly into a directory")
+        uploadedfiles = st.file_uploader("Veuillez charger une image",type=['jpg','jpeg','png'],help="Charger une image au format jpg,jpeg,png", accept_multiple_files=True,)
+        for file in uploadedfiles:
+            if uploadedfiles is not None:
+                save_uploadedfile(file)
+                
         Images = ReadImage("panorama")
         
         BaseImage, _, _ = ProjectOntoCylinder(Images[0])
@@ -243,5 +257,7 @@ def panorama():
             StitchedImage = StitchImages(BaseImage, Images[i])
 
             BaseImage = StitchedImage.copy()    
-
+        st.text('Processing.......')
         cv2.imwrite("Stitched_Panorama.png", BaseImage)
+        st.text('Processed.......')
+        st.image('Stitched_Panorama.png');
