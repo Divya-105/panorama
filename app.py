@@ -53,8 +53,8 @@ def save_uploadedfile(uploadedfile):
         f.write(uploadedfile.getbuffer())
         return st.success("Saved File:{} to Panorama22".format(uploadedfile.name))
 
-st.title("PDF File upload")
-st.text("A simple way to upload files directly into a directory")
+st.title("Upload images")
+st.text("Upload desired images and save in the directory")
 uploadedfiles = st.file_uploader("Veuillez charger une image",type=['jpg','jpeg','png'],help="Charger une image au format jpg,jpeg,png", accept_multiple_files=True,)
 for file in uploadedfiles:
     if uploadedfiles is not None:
