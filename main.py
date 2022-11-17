@@ -3,6 +3,7 @@ import cv2
 import math
 import numpy as np
 import streamlit as st
+from pathlib import Path
       
 
 
@@ -237,7 +238,7 @@ def ProjectOntoCylinder(InitialImage):
 
 # def panorama():
 def save_uploadedfile(uploadedfile):
-    with open(os.path.join('Panorama'), uploadedfile.name) as f:
+    with open(os.path.join('Panorama/'), uploadedfile.name) as f:
         f.write(uploadedfile.getbuffer())
         return st.success("Saved File:{} to Panorama".format(uploadedfile.name))
 
