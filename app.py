@@ -17,8 +17,8 @@ import io
 import os
 import tempfile
 
-import cv2
-import patoolib
+# import cv2
+# import patoolib
 import streamlit as st
 # import streamlit as st
 from PIL import Image
